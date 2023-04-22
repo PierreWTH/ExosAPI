@@ -1,4 +1,4 @@
-// Affiche les pokémons lors du clic
+// Affiche les pokémons lors du clic sur Valider
 const form = document.querySelector("form")
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -40,15 +40,31 @@ function getPokemonData(pokemon){
 
 function printPokemon(pokeData){
     let allPokemonContainer = document.getElementById('allPokemonDiv')
+    Object.assign(allPokemonContainer.style, {
+        display : "flex",
+        flexWrap : "wrap",
+        justifyContent : "center",
+        gap : "10px"
+    })
+
     let pokemonContainer = document.createElement("div")
-    
-    // Afficher le nom
-    let pokemonName = document.createElement('h4')
-    pokemonName.innerText = pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1);
+    Object.assign(pokemonContainer.style, {
+        border : "1px solid black",
+        display : "flex",
+        flexDirection : "column",
+        alignItems : "center",
+        justifyContent : "center",
+        width : "250px",
+        height : "250px"
+    })
 
     // Afficher le numéro
     let pokemonNumber = document.createElement('p')
     pokemonNumber.innerText = "#" + pokeData.id.toString().padStart(3, '0');
+    
+    // Afficher le nom
+    let pokemonName = document.createElement('h4')
+    pokemonName.innerText = pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1);
 
     // Afficher l'image
     let pokemonImg = document.createElement('img')
@@ -58,6 +74,6 @@ function printPokemon(pokeData){
     let pokemonType = document.createElement('p')
     pokemonType.innerText = pokeData.types[0].type.name.charAt(0).toUpperCase() + pokeData.types[0].type.name.slice(1)
     
-    allPokemonContainer.append(pokemonName, pokemonNumber, pokemonImg, pokemonType);
+    pokemonContainer.append(pokemonNumber, pokemonName, pokemonImg, pokemonType);
     allPokemonContainer.appendChild(pokemonContainer);
 }
