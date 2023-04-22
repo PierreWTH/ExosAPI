@@ -50,6 +50,7 @@ function printPokemon(pokeData){
     let pokemonContainer = document.createElement("div")
     Object.assign(pokemonContainer.style, {
         border : "1px solid black",
+        borderRadius : "10px",
         display : "flex",
         flexDirection : "column",
         alignItems : "center",
@@ -57,6 +58,13 @@ function printPokemon(pokeData){
         width : "250px",
         height : "250px"
     })
+
+    const colors = {
+        fire : ['#FDDFDF', {iconType:'', iconColor:'red'}],
+        grass : ['#DEFDE0', {iconType:'', iconColor:'green'}],
+        electric : ['#FCF7DE', {iconType:'', iconColor:'orange'}],
+        water : ['#DEF3FD', {iconType:'', iconColor:'blue'}]
+    }
 
     // Afficher le numéro
     let pokemonNumber = document.createElement('p')
