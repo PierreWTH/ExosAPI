@@ -44,27 +44,22 @@ function printPokemon(pokeData){
         display : "flex",
         flexWrap : "wrap",
         justifyContent : "center",
-        gap : "10px"
+        gap : "20px",
+        fontFamily : "Barlow Condensed"
     })
 
     let pokemonContainer = document.createElement("div")
     Object.assign(pokemonContainer.style, {
-        border : "1px solid black",
         borderRadius : "10px",
         display : "flex",
         flexDirection : "column",
         alignItems : "center",
         justifyContent : "center",
         width : "250px",
-        height : "250px"
+        height : "250px",
+        boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+        gap: "0px"
     })
-
-    const colors = {
-        fire : ['#FDDFDF', {iconType:'', iconColor:'red'}],
-        grass : ['#DEFDE0', {iconType:'', iconColor:'green'}],
-        electric : ['#FCF7DE', {iconType:'', iconColor:'orange'}],
-        water : ['#DEF3FD', {iconType:'', iconColor:'blue'}]
-    }
 
     // Afficher le numéro
     let pokemonNumber = document.createElement('p')
@@ -73,6 +68,7 @@ function printPokemon(pokeData){
     // Afficher le nom
     let pokemonName = document.createElement('h4')
     pokemonName.innerText = pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1);
+    pokemonName.style.margin ="Opx"
 
     // Afficher l'image
     let pokemonImg = document.createElement('img')
@@ -82,6 +78,122 @@ function printPokemon(pokeData){
     let pokemonType = document.createElement('p')
     pokemonType.innerText = pokeData.types[0].type.name.charAt(0).toUpperCase() + pokeData.types[0].type.name.slice(1)
     
-    pokemonContainer.append(pokemonNumber, pokemonName, pokemonImg, pokemonType);
+
+    // Afficher l'icone
+    let pokemonIcon = document.createElement('i')
+    
+
+    //Background et icone en fonction du type du pokémon
+    switch(pokeData.types[0].type.name){
+        case 'fire':
+        pokemonContainer.style.backgroundColor = "#FDDFDF" 
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'  
+        break
+
+        case 'grass':
+        pokemonContainer.style.backgroundColor = "#DEFDE0" 
+        pokemonIcon.classList.add('fa-solid', 'fa-seedling');
+        pokemonIcon.style.color = 'green'    
+        break
+
+        case 'normal':
+        pokemonContainer.style.backgroundColor = "#f0ece4"
+        pokemonIcon.classList.add('fa-regular','fa-circle');
+        pokemonIcon.style.color = 'white'     
+        break
+
+        case 'water':
+        pokemonContainer.style.backgroundColor = "#DEF3FD"
+        pokemonIcon.classList.add('fa-solid','fa-droplet');
+        pokemonIcon.style.color = 'blue'     
+        break
+
+        case 'flying':
+        pokemonContainer.style.backgroundColor = "#DEF3FD"
+        pokemonIcon.classList.add('fa-solid', 'fa-dove');
+        pokemonIcon.style.color = 'white'     
+        break
+
+        case 'poison':
+        pokemonContainer.style.backgroundColor = "#f29b9b"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+
+        case 'electric':
+        pokemonContainer.style.backgroundColor = "#f7f29c"    
+        break
+
+        case 'ground':
+        pokemonContainer.style.backgroundColor = "#bf8040"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+
+        case 'rock':
+        pokemonContainer.style.backgroundColor = "#dfe1e5"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+
+        case 'psychic':
+        pokemonContainer.style.backgroundColor = "#f6edf7"    
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange' 
+        break
+
+        case 'ice':
+        pokemonContainer.style.backgroundColor = "#ccffff"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+
+        case 'bug':
+        pokemonContainer.style.backgroundColor = "#eafcd6"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+
+        case 'ghost':
+        pokemonContainer.style.backgroundColor = "#f7f7f7" 
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'    
+        break
+
+        case 'steel':
+        pokemonContainer.style.backgroundColor = "#b5b5b5"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+
+        case 'dragon':
+        pokemonContainer.style.backgroundColor = "#562f16"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+
+        case 'dark':
+        pokemonContainer.style.backgroundColor = "#1b2431"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+
+        case 'fairy':
+        pokemonContainer.style.backgroundColor = "#ff8dcc"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+
+        case 'fighting':
+        pokemonContainer.style.backgroundColor = "#226c79"
+        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.style.color = 'orange'     
+        break
+    }
+    
+    // Ajout des attributs du pokémon dans le container pokémon
+    pokemonContainer.append(pokemonNumber, pokemonName, pokemonImg, pokemonIcon, pokemonType);
+    // Ajout de toutes les cartes pokémon dans le container général
     allPokemonContainer.appendChild(pokemonContainer);
 }
