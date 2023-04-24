@@ -1,6 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+*{
+    font-family: "poppins";
+    font-weight: 200
+}
 h1{
  font-family: "Press Start 2P";
 }
