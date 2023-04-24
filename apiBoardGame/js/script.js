@@ -1,31 +1,31 @@
-const form = document.querySelector("form")
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const inputNomJeu = document.querySelector(".nomJeu")
+
+const inputNomJeu = document.querySelector(".nomJeu")
+inputNomJeu.addEventListener("input", (event) => {
     selectGame(inputNomJeu);
 })
+const listeJeu = document.querySelector(".listeJeu")
+listeJeu.style.width = "150px"
 
 function selectGame(inputNomJeu){
-    const listeJeu = document.querySelector(".listeJeu")
+    
     
     fetch("https://api.boardgameatlas.com/api/search?name="+inputNomJeu.value+"&client_id=JLBr5npPhV&limit=10")  
     .then((response) => response.json())
     .then((data) => {
         console.log(data.games)
         
+        // On vide la liste et on l'actualise des que le texte de l'input change
+        listeJeu.innerHTML = ""; 
         // Boucle sur data pour récuperer le nom de chaque nomJeu
-        listeJeu.innerHTML += "<option> -- Choisir un jeu  -- </option>"
+        listeJeu.innerHTML += "<option> Choisir un jeu </option>"
+        // Boucle sur data pour récuperer le nom de chaque nomJeu
         data.games.forEach((jeu) => {
             listeJeu.innerHTML += "<option>" + jeu.name + "</option>"
     })
+    
 })
 .catch((error) => listeJeu.innerHTML = error)
 }
-
-listeJeu.addEventListener("change", () => {
-    const selectedGame = listeJeu.value;
-    getInfos(selectedGame)
-});
 
 function getInfos(selectedGame){
     const result = document.querySelector(".result")
@@ -35,7 +35,7 @@ function getInfos(selectedGame){
     .then((data) => {
         console.log(data.games[0])
         
-        result.innerHTML = "<h1>" + data.games[0].name + "</h1>"
+        result.innerHTML = "<h2>" + data.games[0].name + "</h2>"
         result.innerHTML += "<p> De " +data.games[0].min_players + " à " + data.games[0].max_players + " joueurs </p>"
         result.innerHTML += data.games[0].description
         result.innerHTML += "<img src="+data.games[0].images.medium+"><img>" 
@@ -44,8 +44,8 @@ function getInfos(selectedGame){
 .catch((error) => result.innerHTML = error)
 }
 
-listeJeu.addEventListener('focusout', function() {
-
-    listeJeu.innerHTML = '';
+listeJeu.addEventListener("change", () => {
+    const selectedGame = listeJeu.value;
+    getInfos(selectedGame)
 });
 
