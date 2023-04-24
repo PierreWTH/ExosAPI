@@ -106,7 +106,7 @@ function printPokemon(pokeData){
         case 'water':
         pokemonContainer.style.backgroundColor = "#DEF3FD"
         pokemonIcon.classList.add('fa-solid','fa-droplet');
-        pokemonIcon.style.color = 'blue'     
+        pokemonIcon.style.color = '#a0cfef'     
         break
 
         case 'flying':
@@ -117,48 +117,50 @@ function printPokemon(pokeData){
 
         case 'poison':
         pokemonContainer.style.backgroundColor = "#f29b9b"
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange'     
+        pokemonIcon.classList.add('fa-solid','fa-skull-crossbones');
+        pokemonIcon.style.color = 'red'     
         break
 
         case 'electric':
-        pokemonContainer.style.backgroundColor = "#f7f29c"    
+        pokemonContainer.style.backgroundColor = "#f7f29c"  
+        pokemonIcon.classList.add('fa-solid', 'fa-bolt');  
+        pokemonIcon.style.color = 'yellow'   
         break
 
         case 'ground':
         pokemonContainer.style.backgroundColor = "#bf8040"
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange'     
+        pokemonIcon.classList.add('fa-solid', 'fa-tree');
+        pokemonIcon.style.color = 'brown'     
         break
 
         case 'rock':
         pokemonContainer.style.backgroundColor = "#dfe1e5"
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange'     
+        pokemonIcon.classList.add('fa-solid', 'fa-hill-rockslide');
+        pokemonIcon.style.color = 'grey'     
         break
 
         case 'psychic':
         pokemonContainer.style.backgroundColor = "#f6edf7"    
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange' 
+        pokemonIcon.classList.add('fa-solid', 'fa-brain');
+        pokemonIcon.style.color = 'rose' 
         break
 
         case 'ice':
         pokemonContainer.style.backgroundColor = "#ccffff"
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange'     
+        pokemonIcon.classList.add('fa-solid', 'fa-igloo');
+        pokemonIcon.style.color = 'white'     
         break
 
         case 'bug':
         pokemonContainer.style.backgroundColor = "#eafcd6"
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange'     
+        pokemonIcon.classList.add('fa-solid', 'fa-bug');
+        pokemonIcon.style.color = 'brown'     
         break
 
         case 'ghost':
         pokemonContainer.style.backgroundColor = "#f7f7f7" 
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange'    
+        pokemonIcon.classList.add('fa-solid', 'fa-ghost');
+        pokemonIcon.style.color = 'grey'    
         break
 
         case 'steel':
@@ -169,26 +171,26 @@ function printPokemon(pokeData){
 
         case 'dragon':
         pokemonContainer.style.backgroundColor = "#562f16"
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
+        pokemonIcon.classList.add('fa-solid', 'fa-dragon');
         pokemonIcon.style.color = 'orange'     
         break
 
         case 'dark':
         pokemonContainer.style.backgroundColor = "#1b2431"
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange'     
+        pokemonIcon.classList.add('fa-solid', 'fa-moon');
+        pokemonIcon.style.color = 'black'     
         break
 
         case 'fairy':
         pokemonContainer.style.backgroundColor = "#ff8dcc"
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange'     
+        pokemonIcon.classList.add('fa-solid', 'fa-wand-magic-sparkles');
+        pokemonIcon.style.color = 'rose'     
         break
 
         case 'fighting':
         pokemonContainer.style.backgroundColor = "#226c79"
-        pokemonIcon.classList.add('fa-solid', 'fa-fire');
-        pokemonIcon.style.color = 'orange'     
+        pokemonIcon.classList.add('fa-solid', 'fa-skull');
+        pokemonIcon.style.color = 'black'     
         break
     }
     
